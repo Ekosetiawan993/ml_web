@@ -17,12 +17,12 @@ def hello_world():
     else:
         text = request.form["text"]
         random_str = uuid.uuid4().hex
-        path = "static/" + random_str + ".svg"
-        model = load("model.joblib")
+        path = "app/static/" + random_str + ".svg"
+        model = load("app/model.joblib")
         input_data = floats_string_to_input_arr(text)
-        make_picture("age_data.pkl", model, input_data, path)
+        make_picture("app/age_data.pkl", model, input_data, path)
 
-        return render_template('index.html', pic_name=path)
+        return render_template('index.html', pic_name=path[4:])
 
 # Till 24:00
 
